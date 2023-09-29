@@ -1,0 +1,121 @@
+{
+    "banco": {
+        "nome": "Cubos Bank",
+        "numero": "123",
+        "agencia": "0001",
+        "senha": "Cubos123Bank"
+    },
+    "contas": [
+        {
+            "numero": 1,
+            "saldo": 9900,
+            "usuario": {
+                "nome": "Foo Bar",
+                "cpf": "00011122233",
+                "data_nascimento": "2021-03-15",
+                "telefone": "129658",
+                "email": "foo123@bar2.com",
+                "senha": "1234"
+            }
+        },
+        {
+            "numero": 2,
+            "saldo": 20000,
+            "usuario": {
+                "nome": "Foo Bar 2",
+                "cpf": "00011122234",
+                "data_nascimento": "2021-03-15",
+                "telefone": "71999998888",
+                "email": "foo@bar2.com",
+                "senha": "12345"
+            }
+        },
+        {
+            "numero": 3,
+            "saldo": 0,
+            "usuario": {
+                "nome": "Fabia 2",
+                "cpf": "00011122256",
+                "data_nascimento": "2021-03-15",
+                "telefone": "71999998888",
+                "email": "fabiana@bar2.com",
+                "senha": "12345"
+            }
+        },
+        {
+            "numero": 4,
+            "saldo": 0,
+            "usuario": {
+                "nome": "Renata",
+                "cpf": "00011122285",
+                "data_nascimento": "2021-03-15",
+                "telefone": "71999998888",
+                "email": "fabi@bar2.com",
+                "senha": "12345"
+            }
+        }
+    ],
+    "saques": [
+        {
+            "data": "2023-09-28T00:09:07.794Z",
+            "numero_conta": "1",
+            "valor": 1900
+        },
+        {
+            "data": "2023-09-28T00:09:22.219Z",
+            "numero_conta": "1",
+            "valor": 1900
+        },
+        {
+            "data": "2023-09-28T00:10:04.024Z",
+            "numero_conta": "1",
+            "valor": 100
+        },
+        {
+            "data": "2023-09-28T17:54:39.154Z",
+            "numero_conta": "1",
+            "valor": 100
+        },
+        {
+            "data": "2023-09-28T21:00:50.784Z",
+            "numero_conta": "1",
+            "valor": 100
+        }
+    ],
+    "depositos": [
+        {
+            "data": "2023-09-28T00:08:29.993Z",
+            "numero_conta": "1",
+            "valor": 1900
+        },
+        {
+            "data": "2023-09-28T15:55:20.785Z",
+            "numero_conta": "1",
+            "valor": 100
+        },
+        {
+            "data": "2023-09-28T20:46:01.872Z",
+            "numero_conta": "1",
+            "valor": 10000
+        },
+        {
+            "data": "2023-09-28T20:46:22.947Z",
+            "numero_conta": "2",
+            "valor": 20000
+        }
+    ],
+    "transferencias": [
+        {
+            "data": "2023-09-28T23:53:27.812Z",
+            "numero_conta_origem": "1",
+            "numero_conta_destino": "2",
+            "valor": 1000
+        },
+        {
+            "data": "2023-09-28T23:54:24.275Z",
+            "numero_conta_origem": "2",
+            "numero_conta_destino": "1",
+            "valor": 1000
+        }
+    ]
+}
