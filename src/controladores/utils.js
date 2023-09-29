@@ -31,10 +31,31 @@ const salvarAquirvo = async (banco) => {
     await salvarBanco(caminho, bancoTexto);
 }
 
+const validaDadosDoUsuario = (nome, cpf, data_nascimento, telefone, email, senha) => {
 
+    if (!nome || nome === " ") {
+        return res.status(400).json({ mensagem: 'O nome é obrigatorio' });
+    }
+    if (!cpf || cpf === " ") {
+        return res.status(400).json({ mensagem: 'O cpf é obrigatorio' });
+    }
+    if (!data_nascimento || data_nascimento === " ") {
+        return res.status(400).json({ mensagem: 'A data nascimento é obrigatorio' });
+    }
+    if (!telefone || telefone === " ") {
+        return res.status(400).json({ mensagem: 'O telefone é obrigatorio' });
+    }
+    if (!email || email === " ") {
+        return res.status(400).json({ mensagem: 'O email é obrigatorio' });
+    }
+    if (!senha || senha === " ") {
+        return res.status(400).json({ mensagem: 'A senha é obrigatorio' });
+    }
+}
 module.exports = {
     lerBanco,
     gerarNumeroParaContas,
     salvarBanco,
-    salvarAquirvo
+    salvarAquirvo,
+    validaDadosDoUsuario
 }

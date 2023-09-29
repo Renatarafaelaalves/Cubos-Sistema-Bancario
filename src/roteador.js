@@ -1,9 +1,9 @@
 const Router = require('express');
-const verificarSenha = require('./intermediarios');
-const { listaDeContas, abrirConta, excluirConta, depositar, sacar, atualizarDadosCadastrais, transferencia, saldo } = require('./controladores/contas');
+// const verificarSenha = require('./intermediarios');
+const { listaDeContas, abrirConta, excluirConta, depositar, sacar, atualizarDadosCadastrais, transferencia, saldo, extrato } = require('./controladores/contas');
 const rotas = Router();
 
-rotas.use(verificarSenha);
+// rotas.use(verificarSenha);
 
 rotas.get('/contas', listaDeContas);
 rotas.post('/contas', abrirConta);
@@ -14,6 +14,6 @@ rotas.get('/contas/saldo', saldo);
 rotas.post('/transacoes/depositar', depositar);
 rotas.post('/transacoes/sacar', sacar);
 rotas.post('/transacoes/transferir', transferencia);
+rotas.get('/contas/extrato', extrato),
 
-
-module.exports = rotas;
+    module.exports = rotas;
