@@ -327,14 +327,11 @@ const saldo = async (req, res) => {
         if (contaExistente.usuario.senha != senha) {
             return res.status(400).json({ mensagem: 'A senha informada é invalida' });
         }
-
-        res.status(200).json({ mensagem: ` saldo da conta: ${contaExistente.saldo} ` });
+        res.status(200).json({ mensagem: ` saldo da conta : ${contaExistente.saldo}` });
 
     } catch (error) {
         return res.status(500).json({ mensagem: 'Erro interno do servidor' });
     }
-
-
 }
 
 
@@ -353,7 +350,10 @@ const extrato = async (req, res) => {
         const banco = await lerBanco(caminho);
         const contas = banco.contas;
         const contaExistente = contas.find(conta => conta.numero == numero_conta);
-        // console.log(contaExistente);
+
+        const saques = banco.saques;
+        const depositos = banco.depositos;
+        const transferencias = banco.transferencias;
 
         if (!contaExistente) {
             return res.status(404).json({ mensagem: 'Conta bancária não encontada!' });
@@ -362,12 +362,45 @@ const extrato = async (req, res) => {
             return res.status(400).json({ mensagem: 'A senha informada é invalida' });
         }
 
-        return res.status(200).json({ mensagem: `Extrato bancario: ${contaExistente.saques}` })
+        let extrato = {
+            depositos: [],
+            saques: [],
+            transferenciasEnviadas: [],
+            transferenciasRecebidas: []
+        }
+
+
+        for (let saque of saques) {
+            if (saque.numero_conta == contaExistente.numero) {
+                extrato.saques.push(saque);
+
+            }
+        }
+
+        for (let deposito of depositos) {
+            if (deposito.numero_conta == contaExistente.numero) {
+                extrato.depositos.push(deposito);
+
+            }
+        }
+
+        for (let transferencia of transferencias) {
+            if (transferencia.numero_conta_origem == contaExistente.numero) {
+                extrato.transferenciasEnviadas.push(transferencia);
+            }
+            if (transferencia.numero_conta_destino == contaExistente.numero) {
+                extrato.transferenciasRecebidas.push(transferencia);
+            }
+
+        }
+
+        return res.status(200).json(extrato);
 
     } catch (error) {
-        return res.status(500).json({ mensagem: 'Erro interno do servidor' });
-    }
+        console.log(error);
+        return res.status(500).json({ mensagem: error.mensage });
 
+    }
 
 }
 
@@ -382,5 +415,4 @@ module.exports = {
     saldo,
     extrato
 }
-
 
