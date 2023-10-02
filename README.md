@@ -63,7 +63,7 @@ Corpo da Solicitação:
      {
   
       "numero_conta": "1",
-        "valor": 100.0
+        "valor": 100
 	
     }
     
@@ -85,6 +85,7 @@ Corpo da Solicitação:
 
 Rota: POST /contas/transferir
 
+Corpo da Solicitação:
 
      {
 
@@ -98,9 +99,17 @@ Rota: POST /contas/transferir
 ## Verificar saldo
 Rota: GET /contas/saldo?numero_conta=123&senha=senha123
 
+Corpo da Solicitação:
+
+    {
+	"mensagem": " saldo da conta : 200"
+    }
+
+
 ## Obter extrato
 Rota: GET /contas/extrato?numero_conta=123&senha=senha123
 
+Corpo da Solicitação:
 
 ## Contribuição
 Contribuições são bem-vindas! Se você encontrar problemas ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
